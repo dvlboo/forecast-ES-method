@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body{
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* Leftbar CSS */
+.leftbar{
+  background-color: rgb(134, 0, 244);
+  height: 100vh;
+}
+
+.leftbarMenu ul{
+  list-style-type: none;
+}
+
+.leftbarMenu ul li{
+  padding: 10px 0;
+}
+
+.leftbarMenu a{
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.leftbarMenu ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  position: relative;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.leftbarMenu ul li a:hover {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.leftbarMenu ul li a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0; /* Mulai dengan lebar 0 */
+  height: 2px;
+  background-color: #ffffff;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease; /* Efek transisi untuk perubahan lebar */
+}
+
+.leftbarMenu ul li a:hover::after {
+  width: 100%; /* Lebar menjadi 100% saat dihover */
+}
+
+
+
