@@ -10,7 +10,7 @@
   <!-- Bootstarp Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- CSS -->
+  <!-- Style CSS -->
   <link rel="stylesheet" href="assets/style/style.css">
 
   <title>Forecasting Double Exponential Smoothing</title>

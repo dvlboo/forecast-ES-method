@@ -55,5 +55,12 @@ body{
   width: 100%; /* Lebar menjadi 100% saat dihover */
 }
 
+.data, .forecast, .datashow{
+  background-color: #f0eded;
+}
 
-
+div.wrapper {
+  overflow: hidden;
+  height: 450px;
+  overflow-y: scroll;
+}
