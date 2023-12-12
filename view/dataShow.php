@@ -1,5 +1,6 @@
 <?php
   include '../components/dataShowAction.php';
+  $currentPage = 'data';
 ?>
 
 <html lang="en">

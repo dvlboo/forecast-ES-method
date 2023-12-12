@@ -1,5 +1,6 @@
 <?php
   include '../components/forecastAction.php';
+  $currentPage = 'forecast';
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +11,7 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="../assets/style/style.css">
 
     <title>Forecasting Double Exponential Smoothing</title>
@@ -42,55 +44,48 @@
               </tr>
               <tr>
                 <td>
-                <?php foreach($reader as $tgl): ?>
-                  <?php if($count==0): ?>
-                    <?php $count++; continue; ?>
-                  <?php endif; ?>
+                <?php foreach($reader as $count => $tgl): ?>
+                  <?php if($count == 0) continue; ?>
                   <?php echo $tgl[0]."<br>"; ?>
-                  <?php $count++; ?>
                 <?php endforeach; ?>
                 </td>
                 <td>
                 <?php
                   $temp_val = [];
-                  foreach($reader as $nilai){
-                    if($count1==0){
-                        $count1++;
-                        continue;
-                    }
+                  foreach($reader as $count1 => $nilai){
+                    if($count1 == 0) continue;
                     echo $nilai[1]."<br>";
-                    $count1++;
                     $temp_val[] = $nilai[1];
                   }
                 ?>
                 </td>
                 <td>
                   <?php
-                    $temp_nilai = [];
+                    $temp_nilai = $temp_val[0]; // Inisialisasi pada iterasi pertama
                     $hasil_fc = [];
-                    
-                    for ($j = 0; $j < count($temp_val); $j++) {
-                        if ($j != 0) {
-                            $x = ($alpha * $temp_val[$j - 1]) + ((1 - $alpha) * $temp_nilai);
-                            echo number_format($x, 2, ".", "") . "<br>";
-                            $temp_nilai = $x;
-                            $hasil_fc[] = $x;
-                        } else {
-                            echo number_format($temp_val[0], 2, ".", "") . "<br>";
-                            $temp_nilai = $temp_val[0];
-                            $hasil_fc[] = $temp_val[0];
-                        }
-                    }
-                                        
+
+                    for ($j = 1; $j < count($temp_val); $j++) {
+                        // Perhitungan eksponensial tunggal
+                        $x = ($alpha * $temp_val[$j - 1]) + ((1 - $alpha) * $temp_nilai);
+                        echo number_format($x, 2, ".", "") . "<br>";
+                        $temp_nilai = $x;
+                        $hasil_fc[] = $x;
+                    }                    
                   ?>
                 </td>
                 <td>
                   <?php
                     $mape = [];
-                    for($i=0; $i<count($hasil_fc); $i++){
-                      $y = abs(($temp_val[$i]-$hasil_fc[$i])/$temp_val[$i])*100;
-                      echo number_format($y, 2, ".", "")."<br>";
-                      $mape[] = $y;
+                    foreach ($hasil_fc as $i => $hasil) {
+                        // Memastikan tidak terjadi pembagian oleh nol
+                        if ($temp_val[$i] != 0) {
+                            $y = abs(($temp_val[$i] - $hasil) / $temp_val[$i]) * 100;
+                            echo number_format($y, 2, ".", "") . "<br>";
+                            $mape[] = $y;
+                        } else {
+                            // echo "Divisi oleh nol terdeteksi. Nilai MAPE tidak dapat dihitung.<br>";
+                            $mape[] = null; // Menambahkan nilai null untuk menandai pembagian oleh nol
+                        }
                     }
                   ?>
                 </td>
@@ -100,15 +95,15 @@
           <h4>
             Hasil Forecast 1 periode kedepan : 
             <?php
-              $hasil_akhir = ($alpha*end($temp_val))+((1-$alpha)*$temp_nilai);
+              $hasil_akhir = ($alpha * end($temp_val)) + ((1 - $alpha) * $temp_nilai);
               $hasil_akhir_format = number_format($hasil_akhir, 2, ".", "");
-              echo "<span class='text-danger fw-bold'>".$hasil_akhir_format."</span>";
+              echo "<span class='text-danger fw-bold'>" . $hasil_akhir_format . "</span>";
             ?>
           </h4>
           <h4>
             MAPE :
             <?php
-              $mape_akhir = array_sum($mape)/count($mape);
+              $mape_akhir = array_sum($mape) / count($mape);
               $mape_akhir_format = number_format($mape_akhir, 2, ".", "");
               echo "<span class='text-danger fw-bold'>".$mape_akhir_format."</span>";
             ?>

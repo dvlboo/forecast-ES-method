@@ -1,5 +1,6 @@
 <?php
   include '../components/dataAction.php';
+  $currentPage = 'data';
 ?>
 
 <html lang="en">
