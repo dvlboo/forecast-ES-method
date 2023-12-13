@@ -8,9 +8,9 @@
       <li <?php echo ($currentPage === 'data') ? 'class="active"' : ''; ?>>
         <a href="/forecastingES/view/data.php"><i class="bi bi-cloud"></i>&nbsp; Data</a>
       </li>
-      <li <?php echo ($currentPage === 'forecast') ? 'class="active"' : ''; ?>>
+      <!-- <li <?php echo ($currentPage === 'forecast') ? 'class="active"' : ''; ?> >
         <a href="/forecastingES/view/forecast.php"><i class="bi bi-clipboard-data"></i>&nbsp; Forecasting</a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </div>

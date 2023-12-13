@@ -18,7 +18,7 @@
     <!-- Style CSS -->
     <link rel="stylesheet" href="../assets/style/style.css">
 
-    <title>Forecasting Double Exponential Smoothing</title>
+    <title>Forecasting Single Exponential Smoothing</title>
   </head>
   <body>
     <div>
@@ -36,28 +36,32 @@
               </tr>
               <tr>
                 <td>
-                <?php foreach($reader as $tgl): ?>
-                  <?php if($count==0): $count++; continue; endif; ?>
-                  <?php echo $tgl[0]."<br>"; ?>
-                  <?php $count++; ?>
-                <?php endforeach; ?>
+                <?php 
+                  foreach($reader as $tgl):
+                    if($count==0): $count++; continue; endif;
+                    echo $tgl[0]."<br>";
+                    $count++;
+                  endforeach;
+                ?>
                 </td>
                 <td>
-                <?php foreach($reader as $nilai): ?>
-                  <?php if($count1==0): $count1++; continue; endif; ?>
-                  <?php echo $nilai[1]."<br>"; ?>
-                  <?php $count1++; $temp_val[] = $nilai[1]; ?>
-                <?php endforeach; ?>
+                <?php 
+                  foreach($reader as $nilai):
+                    if($count1==0): $count1++; continue; endif;
+                    echo $nilai[1]."<br>";
+                    $count1++; $temp_val[] = $nilai[1];
+                  endforeach;
+                ?>
                 </td>
               </tr>
             </table>
           </div>
           <form method="post" action="forecast.php" class="row">
             <input type="hidden" name="id" value="<?php echo $data['id_dataset'] ?>">
-            <div class="col-6">
+            <div class="col-4">
               <span class="fw-bold fs-4 text-danger">&alpha;</span> = <input type="text" name="alpha" id="alpha" class="col-label-sm" placeholder=" contoh : 0.1"> 
             </div>
-            <div class="col-6 text-end">
+            <div class="col-4 text-end">
               <button class="btn btn-primary ">Next <i class="bi bi-chevron-right"></i></button>
             </div>
           </form>

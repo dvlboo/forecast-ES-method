@@ -4,8 +4,7 @@
   <div class="row">
     <!-- Bootstrap Column for Header Title -->
     <div class="col">
-      <img src="../image/" alt="logo fakultas">
-      <h1 class="display-6 text-center">Double Exponential Smoothing Methods Forecasting</h1>
+      <h1 class="display-6 text-center">Single Exponential Smoothing Methods Forecasting</h1>
     </div>
   </div>
 </div>

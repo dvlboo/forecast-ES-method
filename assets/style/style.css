@@ -64,3 +64,14 @@ div.wrapper {
   height: 450px;
   overflow-y: scroll;
 }
+
+.leftbar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 100% dari tinggi viewport */
+}
+
+.leftbarMenu {
+  flex: 1; /* Memenuhi sisa tinggi dengan flex */
+  overflow-y: auto; /* Menambahkan overflow jika kontennya lebih tinggi dari tinggi viewport */
+}

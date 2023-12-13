@@ -18,7 +18,7 @@
     <!-- Style CSS -->
     <link rel="stylesheet" href="../assets/style/style.css">
 
-    <title>Forecasting Double Exponential Smoothing</title>
+    <title>Forecasting Single Exponential Smoothing</title>
   </head>
   <body>
     <div>

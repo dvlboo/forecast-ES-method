@@ -15,7 +15,7 @@
   <!-- Style CSS -->
   <link rel="stylesheet" href="assets/style/style.css">
 
-  <title>Forecasting Double Exponential Smoothing</title>
+  <title>Forecasting Single Exponential Smoothing</title>
 </head>
 <body>
   <!-- <div class="container-fluid"> -->
@@ -24,11 +24,33 @@
       <?php include 'assets/template/leftbar.php'; ?>
       <div class="col-md-10">
         <div class="text-center mt-5">
+          <!-- <img src="assets/image/LogoUTM.png" width="200px" alt="logo UTM"> -->
           <h1>Tugas Akhir Forecasting</h1>
-          <h4>Pada sistem ini dapat digunakan untuk menghitung peramalan satu periode selanjutnya dari data yang dimasukkan ke dalam sistem menggunakan metode forecasting Double Exponential Smoothing</h4>
+          <h4>Pada sistem ini dapat digunakan untuk menghitung peramalan satu periode selanjutnya dari data yang dimasukkan ke dalam sistem menggunakan metode forecasting <br> Single Exponential Smoothing</h4>
 
-          <p class="mt-5 mb-0">Kukuh Cokro Wibowo - 210441100102</p>
-          <p class="mt-0">Hakiky - 210441100000</p>
+          <h4>Created By :</h4>
+
+          <div class="text-center mt-5 d-flex justify-content-center">
+          <!-- Kolom Kiri -->
+          <div class="float-start me-5">
+            <img src="assets/image/Kukuh.png" width="200px" class="rounded-circle" alt="Foto Profil Kukuh Cokro Wibowo">
+            <div class="mt-3">
+              <p class="mb-0">Kukuh Cokro Wibowo</p>
+              <p class="mt-0">210441100102</p>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan -->
+          <div class="float-start">
+            <img src="assets/image/Kukuh.png" width="200px" class="rounded-circle" alt="Foto Profil Hakiky">
+            <div class="mt-3">
+              <p class="mb-0">Hakiky</p>
+              <p class="mt-0">210441100000</p>
+            </div>
+          </div>
+        </div>
+
+
         </div>
       </div>
     </div>
